@@ -37,20 +37,28 @@ class TicTacToe {
     getWinner() {
         const winnerByRow = this.gameField.map(row => row.every(p => p)) //
                                             .findIndex(p => p);
-        if (winnerByRow >= 0) return this.gameField[winnerByRow][0];
+        if (winnerByRow >= 0){
+            return this.gameField[winnerByRow][0];
+        } 
 
         const winnerByCol = this.gameField.map((_, index) => this.gameField
                                             .map(col => col.every(p => p))) //
                                             .findIndex(p => p);
-        if (winnerByCol >= 0) return this.gameField[0][winnerByCol];
+        if (winnerByCol >= 0){
+            return this.gameField[0][winnerByCol];
+        } 
 
         const winnerByCrossA = this.gameField.map((row, index) => row[index]) //
                                                 .every((p, i, arr) => p === p); //
-        if (winnerByCrossA) return this.gameField[0][0];
+        if (winnerByCrossA){
+            return this.gameField[0][0];
+        } 
 
         const winnerByCrossB = this.gameField.map((row, index) => row[2]) //
                                                 .every((p, i, arr) => p === p); //
-        if (winnerByCrossB) return this.gameField[0][2];
+        if (winnerByCrossB){
+            return this.gameField[0][2];
+        } 
         
         return null;
     }
